@@ -13,7 +13,7 @@ async function getQuestion() {
     const question =  await questions.results[0];
     const alternatives =  await questions.results[0].incorrect_answers;
     const correctAlternative =  await questions.results[0].correct_answer;
-    console.log(correctAlternative)
+    
     alternatives.push(correctAlternative);
    
     shuffleArray(alternatives);
@@ -36,7 +36,6 @@ async function getQuestion() {
 
         const isCorrect = correctAlternative === e.target.innerHTML
 
-        console.log(isCorrect)
         if(isCorrect){
 
             e.target.classList.add("correct")
