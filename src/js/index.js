@@ -13,27 +13,30 @@ async function getQuestion() {
     const question =  await questions.results[0];
     const alternatives =  await questions.results[0].incorrect_answers;
     const correctAlternative =  await questions.results[0].correct_answer;
+    console.log(correctAlternative)
     alternatives.push(correctAlternative);
    
     shuffleArray(alternatives);
     
     document.querySelector(".panel")
-    .innerHTML = `<p class='question'>${question.question}</p><br>
-                    <ul class='ul'>
-                        <li class='li'>${alternatives[0]} </li>
-                        <li class='li'>${alternatives[1]} </li>
-                        <li class='li'>${alternatives[2]} </li>
-                        <li class='li'>${alternatives[3]} </li>
-                    </ul>`
+    .innerHTML = `<p class='question'>${question.question}</p>
+                        <ul class='ul'>
+                            <li class='li'>${alternatives[0]}</li>
+                            <li class='li'>${alternatives[1]}</li>
+                            <li class='li'>${alternatives[2]}</li>
+                            <li class='li'>${alternatives[3]}</li>
+                        </ul>`
      
     const ul = document.querySelector('ul')                
     ul.addEventListener('click', e =>{
+
         if (e.target === ul) {
             return
         }
 
-        const isCorrect = correctAlternative === e.target
+        const isCorrect = correctAlternative === e.target.innerHTML
 
+        console.log(isCorrect)
         if(isCorrect){
 
             e.target.classList.add("correct")
