@@ -21,10 +21,10 @@ async function getQuestion() {
     document.querySelector(".panel")
     .innerHTML = `<p class='question'>${question.question}</p>
                         <ul class='ul'>
-                            <li class='li'>${alternatives[0]}</li>
-                            <li class='li'>${alternatives[1]}</li>
-                            <li class='li'>${alternatives[2]}</li>
-                            <li class='li'>${alternatives[3]}</li>
+                            <li>${alternatives[0]}</li>
+                            <li>${alternatives[1]}</li>
+                            <li>${alternatives[2]}</li>
+                            <li>${alternatives[3]}</li>
                         </ul>`
      
     const ul = document.querySelector('ul')                
